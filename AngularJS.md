@@ -34,10 +34,7 @@
 ### Heroku
 
 >   cd monProjet
->>   heroku login
 >
->>  email : malick.belgrine@gmail.com  (Site NodeJS)
->>  email : haya.bope@gmail.com        (Site Angular2)
 >
 >   git status
 >
