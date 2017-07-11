@@ -1,0 +1,21 @@
+.progress-bar{
+	height: 100%;
+}
+.progress-bar-animated {
+	height: 100%;
+}
+body {
+	background-color: red;
+}
+ngb-progressbar .progress {
+	background-color: red !important;
+}
+html {
+	font-size: 20px;
+}
+i {
+	background-color: black;
+}
+.progress-bar {
+	background-color: green !important;
+}

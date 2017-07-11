@@ -1,0 +1,99 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form #identityForms="ngForm"
+          (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="model.name"
+               name="name"
+               #name="ngModel">
+
+        &nbsp;
+        &nbsp;
+
+        <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Name is required</div>
+
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+
+        <div class="todo">TODO: remove this: {{model.name}}</div>
+      </div>
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="email" class="form-control" id="email"
+               required
+               [(ngModel)]="model.email"
+               name="email"
+               #email="ngModel">
+
+        &nbsp;
+        &nbsp;
+
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is required</div>
+
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+
+      </div>
+      <div class="form-group">
+        <label for="message">message</label>
+        <textarea name="message" id="message"
+                  cols="30"
+                  rows="10"
+                  [(ngModel)]="model.message"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" id="power"
+                required
+                [(ngModel)]="model.power"
+                name="power"
+                #power="ngModel">
+
+          <option *ngFor="let pow of powers"
+                  [value]="pow">{{pow}}</option>
+
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success"
+              [disabled]="!identityForms.form.valid">Submit</button>
+
+      <button type="button" class="btn btn-default"
+              (click)="newidentityForms(); identityForms.reset()">New Hero</button>
+
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <p>{{ diagnostic }}</p>
+
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9  pull-left">{{ model.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">email</div>
+      <div class="col-xs-9 pull-left">{{ model.email }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">message</div>
+      <div class="col-xs-9 pull-left">{{ model.message }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Power</div>
+      <div class="col-xs-9 pull-left">{{ model.power }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false;">Edit</button>
+  </div>
+</div>
